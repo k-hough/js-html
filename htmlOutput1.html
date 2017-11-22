@@ -1,0 +1,33 @@
+<!--This exercise uses an array, a loop, and generates a string of HTML. Start with an array of strings. For each element in the array, generate an HTML paragraph. Concatenate all the paragraphs together into one string of HTML, then display the string.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Exercise</title>
+</head>
+<body>
+
+    <div id="output"></div>
+
+    <script>
+    "use strict";
+
+    var $ = function(id) { return document.getElementById(id); };
+
+    var webDev = ["HTML", "CSS", "JavaScript", "jQuery"];
+
+    var generate = function(array) {
+        var answer = "";
+        for (var i = 0; i < array.length; i++) {
+            answer += "<p>" + array[i] + "</p>";
+        }
+        return answer;
+    };
+
+    $("output").innerHTML = generate(webDev);
+
+    </script>
+
+</body>
+</html>
