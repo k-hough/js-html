@@ -1,0 +1,35 @@
+<!--This exercise uses an array, a loop, and generates a string of HTML. Start with an array of strings. Generate the HTML for a dropdown list (<select> element with nested <option> elements). Each element in the array corresponds to an option in the dropdown list. The value attribute for each option should be the array element's index. Then display the dropdown list.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Exercise</title>
+</head>
+<body>
+
+    <div id="output"></div>
+
+    <script>
+    "use strict";
+
+    var $ = function(id) { return document.getElementById(id); };
+
+    var webDev = ["HTML", "CSS", "JavaScript", "jQuery"];
+
+    var generate = function(array) {
+        var answer = "";
+        for (var i = 0; i < array.length; i++) {
+            answer += "<option value=\"" + i + "\">" + array[i] + "</option>";
+            // answer += '<option value=" ' + i + ' ">' + array[i] + '</option>';
+        }
+        answer = "<select>" + answer + "</select>";
+        return answer;
+    };
+
+    $("output").innerHTML = generate(webDev);
+
+    </script>
+
+</body>
+</html>
