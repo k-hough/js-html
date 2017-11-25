@@ -1,0 +1,48 @@
+<!--This exercise generates radio buttons. Start with an array of text labels, one for each radio button. A second array contains the values for the radio buttons. Write a function that takes both arrays as arguments and returns a string of HTML containing the generated radio buttons. Each element in the arrays corresponds to a radio button. Separate each radio button with a line break.
+
+Modify the previous exercise by replacing the 2 arrays with 1 associative array.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Exercise</title>
+</head>
+<body>
+
+    <div id="output"></div>
+
+    <script>
+    "use strict";
+
+    var $ = function(id) { return document.getElementById(id); };
+
+    var webDev = [];
+    webDev["html"] = "HTML";
+    webDev["css"] = "CSS";
+    webDev["javascript"] = "JavaScript";
+    webDev["jquery"] = "jQuery";
+
+    var generate = function(arrayAss) {
+        var answer = "";
+        for (var key in arrayAss) {
+            answer +=
+            "<input type=\"radio\" "
+            + "name=\"webDev\" "
+            + "value=\"" + key + "\""
+            + "id=\"" + key + "\">"
+            + " <label for=\"" + key + "\" >"
+            + arrayAss[key]
+            + "</label><br>"
+            ;
+        }
+        answer = "<form>" + answer + "</form>";
+        return answer;
+    };
+
+    $("output").innerHTML = generate(webDev);
+
+    </script>
+
+</body>
+</html>
