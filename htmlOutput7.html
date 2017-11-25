@@ -1,0 +1,37 @@
+<!--This exercise generates <a> tags. Start with an array of HTML filenames for the href attributes, for example, "index.html", "products.html", "mail_list.html", and "about_us.html". A second array contains the text labels for the links, for example, "Home", "Products", "Join Mailing List", and "About Us". Write a function that takes both arrays as arguments and returns a string of HTML containing the generated <a> tags. Each element in the arrays corresponds to an <a> tag. Each <a> tag should have a sequential number to the left of it, "1. ", "2. ", etc. Separate each <a> tag with a line break.
+
+Modify the previous exercise so that the generated <a> tags are contained in an ordered list.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Exercise</title>
+</head>
+<body>
+
+    <div id="output"></div>
+
+    <script>
+    "use strict";
+
+    var $ = function(id) { return document.getElementById(id); };
+
+    var hrefs = ["index.html", "products.html", "mail_list.html", "about_us.html"];
+    var labels = ["Home", "Products", "Join Mailing List", "About Us"];
+
+    var generate = function(hrefs, labels) {
+        var answer = "";
+        for (var i = 0; i < hrefs.length; i++) {
+            answer += "<li><a href=\"" + hrefs[i] + "\">" + labels[i] + "</a></li>";
+        }
+        answer = "<ol>" + answer + "</ol>";
+        return answer;
+    };
+
+    $("output").innerHTML = generate(hrefs, labels);
+
+    </script>
+
+</body>
+</html>
