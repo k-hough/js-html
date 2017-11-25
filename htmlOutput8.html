@@ -1,0 +1,35 @@
+<!--This exercise generates <img> tags. Start with an array of image filenames and assume the images are stored in an "images" folder. A second array contains the alternate text for the images. Write a function that takes both arrays as arguments and returns a string of HTML containing the generated <img> tags. Each element in the arrays corresponds to an <img> tag. Separate each <img> tag with a line break.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Exercise</title>
+</head>
+<body>
+
+    <div id="output"></div>
+
+    <script>
+    "use strict";
+
+    var $ = function(id) { return document.getElementById(id); };
+
+    var images = ["images/homer.svg", "images/marge.svg", "images/bart.svg", "images/lisa.svg", "images/maggie.svg"];
+
+    var altText = ["Homer Simpson", "Marge Simpson", "Bart Simpson", "Lisa Simpson", "Maggie Simpson"];
+
+    var generate = function(images, altText) {
+        var answer = "";
+        for (var i = 0; i < images.length; i++) {
+            answer += "<img src=\"" + images[i] + "\" alt=\"" + altText[i] + "\"" + "><br>";
+        }
+        return answer;
+    };
+
+    $("output").innerHTML = generate(images, altText);
+
+    </script>
+
+</body>
+</html>
